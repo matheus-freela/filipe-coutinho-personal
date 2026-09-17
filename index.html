@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Filipe Coutinho Personal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{color-scheme:light}
+  body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#F4F7F5;color:#182823;}
+  img{max-width:100%}
+  [hidden]:not([hidden=until-found i]){display:none!important}
+
+  :root{
+    --bg:#F4F7F5;
+    --surface:#FFFFFF;
+    --surface-alt:#EAF0EC;
+    --ink:#182823;
+    --ink-soft:#51655D;
+    --ink-faint:#87968E;
+    --accent:#E2652E;
+    --accent-ink:#FFF6EF;
+    --accent-soft:#FBE3D3;
+    --teal:#1E7A68;
+    --teal-soft:#DCEEE7;
+    --border:#DEE6E1;
+    --shadow:0 1px 2px rgba(24,40,35,0.05),0 12px 28px -16px rgba(24,40,35,0.18);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#111815;
+      --surface:#171F1B;
+      --surface-alt:#1E2822;
+      --ink:#EAF1EC;
+      --ink-soft:#A9B8B0;
+      --ink-faint:#71827A;
+      --accent:#F0885A;
+      --accent-ink:#241209;
+      --accent-soft:#3A2317;
+      --teal:#5FC7AC;
+      --teal-soft:#1B3630;
+      --border:#293A32;
+      --shadow:0 1px 2px rgba(0,0,0,0.3),0 12px 28px -16px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#111815;
+    --surface:#171F1B;
+    --surface-alt:#1E2822;
+    --ink:#EAF1EC;
+    --ink-soft:#A9B8B0;
+    --ink-faint:#71827A;
+    --accent:#F0885A;
+    --accent-ink:#241209;
+    --accent-soft:#3A2317;
+    --teal:#5FC7AC;
+    --teal-soft:#1B3630;
+    --border:#293A32;
+    --shadow:0 1px 2px rgba(0,0,0,0.3),0 12px 28px -16px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Karla',system-ui,sans-serif;
+    line-height:1.6;
+    padding-inline:20px;
+  }
+  .wrap{max-width:900px;margin-inline:auto;}
+  h1,h2,h3{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:650;
+    text-wrap:balance;
+    letter-spacing:-0.01em;
+    margin:0;
+    color:var(--ink);
+  }
+  p{margin:0;}
+  a{color:var(--teal);}
+
+  .eyebrow{
+    font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--accent);margin:0 0 12px;
+  }
+
+  /* nav */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
+    background:color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+    padding-block:14px;margin-inline:-20px;padding-inline:20px;
+  }
+  .nav-inner{max-width:900px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-name{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;}
+  .nav-cta{
+    font-size:.82rem;font-weight:700;color:var(--accent-ink);background:var(--accent);
+    padding:9px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;
+  }
+
+  section{padding-block:52px;border-bottom:1px solid var(--border);}
+  section:last-of-type{border-bottom:none;}
+
+  /* hero */
+  .hero{padding-block:44px 52px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;}
+  @media (max-width:720px){.hero-grid{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(1.9rem,4.2vw,2.7rem);line-height:1.14;margin-bottom:16px;}
+  .hero .lead{color:var(--ink-soft);font-size:1.08rem;max-width:46ch;margin-bottom:26px;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;}
+  .badge{
+    font-size:.78rem;font-weight:600;color:var(--teal);background:var(--teal-soft);
+    border-radius:999px;padding:6px 12px;
+  }
+  .btn{
+    font-weight:700;font-size:.95rem;
+    padding:13px 24px;border-radius:10px;text-decoration:none;display:inline-block;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--accent);color:var(--accent-ink);}
+  .btn-primary:hover{opacity:.92;}
+  .btn-ghost{border-color:var(--border);color:var(--ink);}
+
+  .ph-frame{
+    aspect-ratio:4/5;border-radius:16px;border:2px dashed var(--border);
+    background:var(--surface-alt);display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:10px;color:var(--ink-faint);text-align:center;padding:20px;
+  }
+  .ph-frame svg{width:44px;height:44px;opacity:.55;}
+  .ph-frame span{font-size:.8rem;max-width:22ch;}
+
+  /* sobre */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  @media (max-width:720px){.about-grid{grid-template-columns:1fr;}}
+  .about-grid p{color:var(--ink-soft);max-width:52ch;margin-bottom:14px;}
+  .about-grid p:last-child{margin-bottom:0;}
+  .credential-list{display:flex;flex-direction:column;gap:14px;}
+  .credential{
+    display:flex;gap:14px;align-items:flex-start;background:var(--surface);
+    border:1px solid var(--border);border-radius:12px;padding:16px;box-shadow:var(--shadow);
+  }
+  .credential .icon{
+    flex:none;width:36px;height:36px;border-radius:9px;background:var(--accent-soft);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .credential .icon svg{width:18px;height:18px;}
+  .credential h3{font-size:.98rem;margin-bottom:3px;}
+  .credential p{font-size:.9rem;color:var(--ink-soft);margin:0;}
+
+  /* modalidades */
+  .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:720px){.cards-grid{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:14px;
+    padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;
+  }
+  .service-card .icon{
+    width:38px;height:38px;border-radius:10px;background:var(--teal-soft);color:var(--teal);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .service-card .icon svg{width:20px;height:20px;}
+  .service-card h3{font-size:1.02rem;}
+  .service-card p{color:var(--ink-soft);font-size:.92rem;margin:0;}
+
+  /* publico */
+  .publico-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .publico-chip{
+    background:var(--surface);border:1px solid var(--border);border-radius:10px;
+    padding:12px 16px;font-size:.9rem;font-weight:600;color:var(--ink);
+    display:flex;align-items:center;gap:8px;
+  }
+  .publico-chip::before{content:"✓";color:var(--teal);font-weight:800;}
+
+  /* depoimentos */
+  .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  @media (max-width:720px){.testi-grid{grid-template-columns:1fr;}}
+  .testi-card{
+    background:var(--surface-alt);border:1px dashed var(--border);border-radius:14px;
+    padding:20px;color:var(--ink-faint);font-size:.9rem;font-style:italic;
+  }
+  .testi-card .who{margin-top:12px;font-style:normal;font-weight:700;font-size:.82rem;color:var(--ink-soft);}
+
+  /* faq */
+  .faq-item{padding-block:16px;border-bottom:1px solid var(--border);}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-item h3{font-size:.98rem;margin-bottom:6px;}
+  .faq-item p{color:var(--ink-soft);font-size:.92rem;max-width:60ch;}
+
+  /* contato / cta final */
+  .cta-final{
+    background:var(--teal);color:var(--accent-ink);border-radius:18px;
+    padding:36px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .cta-final h2{color:#fff;font-size:1.5rem;}
+  .cta-final p{color:var(--teal-soft);max-width:44ch;}
+  .cta-final .btn-primary{background:var(--accent);}
+
+  footer{padding-block:28px 48px;text-align:center;font-size:.8rem;color:var(--ink-faint);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-name">Filipe Coutinho</span>
+    <a class="nav-cta" href="https://wa.me/5513996751945?text=Oi%2C%20Filipe!%20Vi%20sua%20p%C3%A1gina%20e%20quero%20saber%20mais%20sobre%20treinar%20com%20voc%C3%AA." target="_blank" rel="noopener">Marcar avaliação</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">personal trainer · santos, sp</p>
+        <h1>Treino funcional, no seu ritmo, com alguém ao seu lado.</h1>
+        <p class="lead">Acompanhamento próximo pra quem quer se movimentar melhor, perder peso e ganhar disposição — sem cobrança de academia, sem comparação, sem intimidação.</p>
+        <div class="badge-row">
+          <span class="badge">Funcional &amp; emagrecimento</span>
+          <span class="badge">Todos os públicos e níveis</span>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/5513996751945?text=Oi%2C%20Filipe!%20Vi%20sua%20p%C3%A1gina%20e%20quero%20saber%20mais%20sobre%20treinar%20com%20voc%C3%AA." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+      <div class="ph-frame">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="10" r="2.2"/><path d="M4 19l5-5 3 3 4-5 4 4"/></svg>
+        <span>foto do Filipe (treino ou retrato) — substituir aqui</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <p class="eyebrow">sobre</p>
+    <h2 style="font-size:1.4rem;margin-bottom:22px;">Quem vai te acompanhar</h2>
+    <div class="about-grid">
+      <div>
+        <p>Meu nome é <strong style="color:var(--ink)">Filipe Coutinho</strong>. Trabalho com treino funcional em Santos, sempre pensando no que faz sentido pra rotina de cada aluno — seja treinar numa academia estruturada, na sua própria casa ou ao ar livre.</p>
+        <p>Acredito que o maior obstáculo pra maioria das pessoas não é o treino em si, mas começar sem se sentir julgado. É por isso que atendo qualquer público — de quem nunca pisou numa academia até quem já treina, mas quer um acompanhamento mais de perto.</p>
+      </div>
+      <div class="credential-list">
+        <div class="credential">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+          <div><h3>Educação Física — FEFIS</h3><p>Formação na Faculdade de Educação Física de Santos.</p></div>
+        </div>
+        <div class="credential">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-9.5-9C1 8 3 4 7 4c2 0 3.5 1 5 3 1.5-2 3-3 5-3 4 0 6 4 4.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></span>
+          <div><h3>Atendimento próximo</h3><p>Turmas pequenas ou individual — acompanhamento real, não treino em massa.</p></div>
+        </div>
+        <div class="credential">
+          <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <div><h3>Onde e quando você preferir</h3><p>Ultra Academia, na sua casa, ou ao ar livre — horário combinado com você.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modalidades">
+    <p class="eyebrow">como funciona</p>
+    <h2 style="font-size:1.4rem;margin-bottom:22px;">Onde o treino acontece</h2>
+    <div class="cards-grid">
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6h12M6 18h12M8 6v12M16 6v12"/></svg></span>
+        <h3>Na Ultra Academia</h3>
+        <p>Estrutura completa de equipamentos, com acompanhamento individual dentro da academia.</p>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg></span>
+        <h3>Na sua casa</h3>
+        <p>Treino funcional adaptado com o espaço e os equipamentos que você já tem em casa.</p>
+      </div>
+      <div class="service-card">
+        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18c3-8 6-12 8-12s5 4 8 12"/><path d="M2 18h20"/></svg></span>
+        <h3>Ao ar livre</h3>
+        <p>Praia, calçadão ou praça — pra quem prefere treinar tomando um ar em Santos.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="publico">
+    <p class="eyebrow">pra quem é</p>
+    <h2 style="font-size:1.4rem;margin-bottom:20px;">Treino pra qualquer momento em que você está</h2>
+    <div class="publico-row">
+      <span class="publico-chip">Quem nunca treinou</span>
+      <span class="publico-chip">Quem quer emagrecer</span>
+      <span class="publico-chip">Quem voltou depois de um tempo parado</span>
+      <span class="publico-chip">Quem já treina e quer evoluir</span>
+      <span class="publico-chip">Qualquer idade</span>
+    </div>
+  </section>
+
+  <section id="depoimentos">
+    <p class="eyebrow">depoimentos</p>
+    <h2 style="font-size:1.4rem;margin-bottom:20px;">O que os alunos dizem</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        “[espaço reservado para depoimento de um aluno — substituir depois dos primeiros atendimentos]”
+        <div class="who">— nome do aluno</div>
+      </div>
+      <div class="testi-card">
+        “[espaço reservado para depoimento de um aluno — substituir depois dos primeiros atendimentos]”
+        <div class="who">— nome do aluno</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <p class="eyebrow">dúvidas comuns</p>
+    <h2 style="font-size:1.4rem;margin-bottom:8px;">Perguntas frequentes</h2>
+    <div class="faq-item">
+      <h3>Preciso já estar em forma pra começar?</h3>
+      <p>Não. O treino é montado a partir de onde você está agora — o objetivo é evoluir no seu ritmo, não te comparar com ninguém.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Como funciona a primeira conversa?</h3>
+      <p>É só mandar uma mensagem no WhatsApp contando um pouco do seu objetivo. A partir disso combinamos um horário pra uma avaliação inicial.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Dá pra treinar em casa mesmo sem equipamento?</h3>
+      <p>Sim — o treino funcional é adaptado ao que você tem disponível, mesmo que seja só o peso do corpo.</p>
+    </div>
+  </section>
+
+  <section id="contato" style="border-bottom:none;">
+    <div class="cta-final">
+      <h2>Bora marcar sua primeira avaliação?</h2>
+      <p>Me manda uma mensagem contando seu objetivo — sem compromisso, sem cobrança.</p>
+      <a class="btn btn-primary" href="https://wa.me/5513996751945?text=Oi%2C%20Filipe!%20Vi%20sua%20p%C3%A1gina%20e%20quero%20saber%20mais%20sobre%20treinar%20com%20voc%C3%AA." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>Filipe Coutinho · Personal Trainer · Santos, SP</footer>
+</div>
+
+</body>
+</html>
